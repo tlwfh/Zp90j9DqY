@@ -1,0 +1,176 @@
+# Config for SuperTokens service. Here you will set the config params for
+# the main service as well as your database.
+# Some parameters are compulsory and are indicated via a (COMPULSORY) tag.
+# Others are optional and are indicated via a (OPTIONAL) tag.
+# To see the default values of the optional params are mentioned in the tag itself
+
+core_config_version: 0
+
+
+# (OPTIONAL | Default: 3567) integer value. The port at which SuperTokens service runs.
+# port:
+
+
+# (OPTIONAL | Default: "localhost") string value. The host on which SuperTokens service runs. Values here can
+# be localhost, example.com, 0.0.0.0 or any IP address associated with your machine
+# host:
+
+
+# (DIFFERENT_ACROSS_APPS | OPTIONAL | Default: 3600) integer value. Time in seconds for how long an access token is
+# valid for.
+# access_token_validity:
+
+
+# (DIFFERENT_ACROSS_APPS | OPTIONAL | Default: false) boolean value. Deprecated, please see changelog. Only used in
+# CDI<=2.18
+# If true, allows for immediate revocation of any access token. Keep in mind that setting this to true will result
+# in a db query for each API call that requires authentication.
+# access_token_blacklisting:
+
+
+# (DIFFERENT_ACROSS_APPS | OPTIONAL | Default: true) boolean value. Deprecated, please see changelog.
+# If this is set to true, the access tokens created using CDI<=2.18 will be signed using a static signing key.
+# access_token_signing_key_dynamic:
+
+
+# (DIFFERENT_ACROSS_APPS | OPTIONAL | Default:168) integer value. Time in hours for how frequently the dynamic signing
+# key will change.
+# access_token_dynamic_signing_key_update_interval:
+
+
+# (DIFFERENT_ACROSS_APPS | OPTIONAL | Default: 144000) double value. Time in mins for how long a refresh token is valid
+# for.
+# refresh_token_validity:
+
+
+# (DIFFERENT_ACROSS_TENANTS | OPTIONAL | Default: 3600000) long value. Time in milliseconds for how long a password
+# reset token / link is valid for.
+# password_reset_token_lifetime:
+
+
+# (DIFFERENT_ACROSS_TENANTS | OPTIONAL | Default: 86400000 (1 day)) long value. Time in milliseconds for how long an
+# email verification token / link is valid for.
+# email_verification_token_lifetime:
+
+
+# (DIFFERENT_ACROSS_TENANTS | OPTIONAL | Default: 5) integer value. The maximum number of code input attempts per login
+# before the user needs to restart.
+# passwordless_max_code_input_attempts:
+
+# (DIFFERENT_ACROSS_TENANTS | OPTIONAL | Default: 900000) long value. Time in milliseconds for how long a passwordless
+# code is valid for.
+# passwordless_code_lifetime:
+
+# (DIFFERENT_ACROSS_TENANTS | OPTIONAL | Default: 5) integer value. The maximum number of invalid TOTP attempts that
+# will trigger rate limiting.
+# totp_max_attempts:
+
+# (DIFFERENT_ACROSS_TENANTS | OPTIONAL | Default: 900) integer value. The time in seconds for which the user will be
+# rate limited once totp_max_attempts is crossed.
+# totp_rate_limit_cooldown_sec:
+
+# (OPTIONAL | Default: installation directory/logs/info.log) string value. Give the path to a file (on your local
+# system) in which the SuperTokens service can write INFO logs to. Set it to "null" if you want it to log to
+# standard output instead.
+# info_log_path:
+
+
+# (OPTIONAL | Default: installation directory/logs/error.log) string value. Give the path to a file (on your local
+# system) in which the SuperTokens service can write ERROR logs to. Set it to "null" if you want it to log to
+# standard error instead
+# error_log_path:
+
+
+# (OPTIONAL | Default: 10) integer value. Sets the max thread pool size for incoming http server requests.
+# max_server_pool_size:
+
+
+# (DIFFERENT_ACROSS_APPS | OPTIONAL | Default: no API keys) comma separated string values. The API keys to query an
+# instance using this config file. The format is "key1,key2,key3". Keys can only contain '=', '-' and alpha-numeric
+# (including capital) chars. Each key must have a minimum length of 20 chars
+# api_keys:
+
+
+# (DIFFERENT_ACROSS_APPS | OPTIONAL | Default: false). Learn more about Telemetry here:
+# https://github.com/supertokens/supertokens-core/wiki/Telemetry
+# disable_telemetry:
+
+
+# (OPTIONAL | Default: ""). Used to prepend a base path to all APIs when querying the core.
+# base_path:
+
+# (DIFFERENT_ACROSS_APPS | OPTIONAL | Default: "BCRYPT"). The password hashing algorithm to use. Values are "ARGON2" |
+# "BCRYPT"
+# password_hashing_alg:
+
+# (OPTIONAL | Default: 11). Number of rounds to set for bcrypt password hashing
+# bcrypt_log_rounds:
+
+# (OPTIONAL | Default: 1). Number of iterations for argon2 password hashing
+# argon2_iterations:
+
+# (OPTIONAL | Default: 87795 (85 mb)). Amount of memory in kb for argon2 password hashing
+# argon2_memory_kb:
+
+# (OPTIONAL | Default: 2). Amount of parallelism for argon2 password hashing
+# argon2_parallelism:
+
+# (OPTIONAL | Default: 1). Number of concurrent argon2 hashes that can happen at the same time for sign up or sign
+# in requests.
+# argon2_hashing_pool_size:
+
+# (OPTIONAL | Default: "INFO"). Logging level for the core. Values are "DEBUG" | "INFO" | "WARN" | "ERROR" | "NONE"
+# log_level:
+
+# (DIFFERENT_ACROSS_APPS | OPTIONAL | Default: null). The signer key used for firebase scrypt password hashing
+# firebase_password_hashing_signer_key:
+
+# (OPTIONAL | Default: 1). Number of concurrent firebase scrypt hashes that can happen at the same time for sign in requests.
+# firebase_password_hashing_pool_size:
+
+# (DIFFERENT_ACROSS_TENANTS | OPTIONAL | Default: null). Regex for allowing requests from IP addresses that match with
+# the value. For example, use the value of 127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1 to allow only localhost to query the
+# core. Comment it out to allow requests from any IP address.
+# ip_allow_regex:
+
+# (DIFFERENT_ACROSS_TENANTS | OPTIONAL | Default: null). Regex for denying requests from IP addresses that match with
+# the value. Comment this value to deny no IP address.
+# ip_deny_regex:
+
+# (OPTIONAL | Default: null). This is used when deploying the core in SuperTokens SaaS infrastructure. If set, limits
+# what database information is shown to / modifiable by the dev when they query the core to get the information about
+# their tenants. It only exposes that information when this key is used instead of the regular api_keys config.
+# supertokens_saas_secret:
+
+# (DIFFERENT_ACROSS_APPS | OPTIONAL | Default: null). This is used when the core needs to assume a specific CDI version
+# when CDI version is not specified in the request. When set to null, the core will assume the latest version of the
+# CDI.
+# supertokens_max_cdi_version:
+
+
+# (OPTIONAL | Default: null) string value. If specified, the supertokens service will only load the specified CUD even
+# if there are more CUDs in the database and block all other CUDs from being used from this instance.
+# supertokens_saas_load_only_cud:
+
+# (OPTIONAL | Default: null) string value. If specified, the core uses this URL to connect to the OAuth provider
+# public service.
+# oauth_provider_public_service_url:
+
+# (OPTIONAL | Default: null) string value. If specified, the core uses this URL to connect to the OAuth provider admin
+# service.
+# oauth_provider_admin_service_url:
+
+# (OPTIONAL | Default: null) string value. If specified, the core uses this URL to replace the default
+# consent and login URLs to {apiDomain}.
+# oauth_provider_consent_login_base_url:
+
+# (OPTIONAL | Default: oauth_provider_public_service_url) If specified, the core uses this URL to parse responses from
+# the oauth provider when the oauth provider's internal address differs from the known public provider address.
+# oauth_provider_url_configured_in_oauth_provider:
+
+# (Optional | Default: null) string value. The encryption key used for saving OAuth client secret on the database.
+# oauth_client_secret_encryption_key:
+
+# (DIFFERENT_ACROSS_APPS | OPTIONAL | Default: number of available processor cores) int value. If specified,
+# the supertokens core will use the specified number of threads to complete the migration of users.
+# bulk_migration_parallelism:
